@@ -202,5 +202,17 @@ namespace Exercise2
             }
             Console.WriteLine("");
         }
+        static void Main(string[] args)
+        {
+            Program myList = new Program();
+            int pilihanmenu;
+
+            Console.WriteLine("Menu Option");
+            Console.WriteLine("================");
+            Console.WriteLine("1.Quick Sort");
+            Console.WriteLine("2.Exit");
+            Console.Write("Enter your choice (1,2) : ");
+            pilihanmenu = Convert.ToInt32(Console.ReadLine());
+        }
     }
 }
