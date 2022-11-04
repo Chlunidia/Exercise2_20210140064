@@ -226,13 +226,13 @@ namespace Exercise2
                     myList.displayq_sort();
                     break;
                 case 2:
-                    int[] MyArray = { 10, 1, 23, 50, 4, 9, -4 };
-                    int n = MyArray.Length;
-                    Console.Write("Original Array\n");
-                    PrintArray(MyArray);
-                    MergeSort(MyArray, 0, n - 1);
-                    Console.Write("\nSorted Array\n");
-                    PrintArray(MyArray);
+                    Console.WriteLine("");
+                    Console.WriteLine("-------------");
+                    Console.WriteLine("Quick Sort");
+                    Console.WriteLine("-------------");
+                    myList.input();
+                    myList.q_sort(0, myList.getSize() - 1);
+                    myList.displayq_sort();
                     break;
                 case 3:
                     Console.WriteLine("exit.");
