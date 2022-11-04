@@ -5,7 +5,7 @@ namespace Exercise2
     class Program
     {
         //Array to be searched
-        int[] arr = new int[20];
+        int[] luni = new int[20];
         //Number of elements in the array 
         int n;
         //Get the number of elements to store in the array
@@ -33,16 +33,16 @@ namespace Exercise2
             {
                 Console.Write("<" + (i + 1) + ">");
                 string s1 = Console.ReadLine();
-                arr[i] = Int32.Parse(s1);
+                luni[i] = Int32.Parse(s1);
             }
         }
         void swap(int x, int y)
         {
             int temp;
 
-            temp = arr[x];
-            arr[x] = arr[y];
-            arr[y] = temp;
+            temp = luni[x];
+            luni[x] = luni[y];
+            luni[y] = temp;
         }
         public void q_sort(int low, int high)
         {
@@ -57,12 +57,12 @@ namespace Exercise2
             i = low + 1;
             CK = high;
 
-            pivot = arr[low];
+            pivot = luni[low];
 
             while (i <= CK)
             {
                 //Search for an element greater than pivot
-                while ((arr[i] <= pivot) && (i <= high))
+                while ((luni[i] <= pivot) && (i <= high))
                 {
                     i++;
                     cmp_count++;
@@ -70,7 +70,7 @@ namespace Exercise2
                 cmp_count++;
 
                 //Search for an elements less then or equal to pivot
-                while ((arr[j] > pivot) && (j >= low))
+                while ((luni[CK] > pivot) && (CK >= low))
                 {
                     CK--;
                     cmp_count++;
@@ -107,7 +107,7 @@ namespace Exercise2
 
             for (int CK = 0; CK < n;CK++)
             {
-                Console.WriteLine(arr[CK]);
+                Console.WriteLine(luni[CK]);
             }
             Console.WriteLine("\nNumber of comparisons: " + cmp_count);
             Console.WriteLine("\nNumber of data movements: " + mov_count);
@@ -198,7 +198,7 @@ namespace Exercise2
             Console.WriteLine("----------------------------------");
             for (int j = 0; j < n; j++)
             {
-                Console.WriteLine(arr[j]);
+                Console.WriteLine(luni[j]);
             }
             Console.WriteLine("");
         }
