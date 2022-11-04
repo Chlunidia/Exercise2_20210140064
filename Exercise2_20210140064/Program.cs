@@ -10,6 +10,8 @@ namespace Exercise2
         int n;
         //Get the number of elements to store in the array
         int i;
+        private int cmp_count = 0; // number of comparasion
+        private int mov_count = 0; // number of data movements
         public void input()
         {
             while (true)
@@ -34,5 +36,6 @@ namespace Exercise2
                 arr[i] = Int32.Parse(s1);
             }
         }
+
     }
 }
