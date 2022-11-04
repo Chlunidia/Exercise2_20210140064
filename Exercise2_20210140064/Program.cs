@@ -116,5 +116,15 @@ namespace Exercise2
         {
             return (n);
         }
+        public void MergeSort(int[] Array, int low, int high)
+        {
+            if (low >= high)
+            {
+                int mid = (low + high) / 2;
+                MergeSort(Array, low, mid);
+                MergeSort(Array, mid + 1, high);
+                merge(Array, low, mid, high);
+            }
+        }
     }
 }
