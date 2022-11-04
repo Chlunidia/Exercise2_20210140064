@@ -181,5 +181,13 @@ namespace Exercise2
                 z++;
             }
         }
+        // function to print array
+        static void PrintArray(int[] Array)
+        {
+            int n = Array.Length;
+            for (int i = 0; i < n; i++)
+                Console.Write(Array[i] + " ");
+            Console.Write("\n");
+        }
     }
 }
