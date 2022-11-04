@@ -36,6 +36,68 @@ namespace Exercise2
                 arr[i] = Int32.Parse(s1);
             }
         }
+        void swap(int x, int y)
+        {
+            int temp;
 
+            temp = arr[x];
+            arr[x] = arr[y];
+            arr[y] = temp;
+        }
+        public void q_sort(int low, int high)
+        {
+            int pivot, i, j;
+            if (low > high)
+                return;
+
+            //Partition the list into two parts:
+            //One containing elements less that or equal to pivot
+            //Other containing elements greater than pivot
+
+            i = low + 1;
+            j = high;
+
+            pivot = arr[low];
+
+            while (i <= j)
+            {
+                //Search for an element greater than pivot
+                while ((arr[i] <= pivot) && (i <= high))
+                {
+                    i++;
+                    cmp_count++;
+                }
+                cmp_count++;
+
+                //Search for an elements less then or equal to pivot
+                while ((arr[j] > pivot) && (j >= low))
+                {
+                    j--;
+                    cmp_count++;
+                }
+                cmp_count++;
+
+
+                if (i < j) //if the greater element is on the left of the element
+                {
+                    //swap the element at index i with the element at index j
+                    swap(i, j);
+                    mov_count++;
+                }
+            }
+            //j now contains the index of the last element in the sorted list
+
+            if (low < j)
+            {
+                //Move the pivot to the correct position in the list
+                swap(low, j);
+                mov_count++;
+            }
+            //sort the list on the left of pivot using quick sort
+            q_sort(low, j - 1);
+
+            //sort the list on the right of pivot using quick sort
+            q_sort(j + 1, high);
+        }
     }
 }
