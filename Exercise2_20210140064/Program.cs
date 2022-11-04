@@ -46,7 +46,7 @@ namespace Exercise2
         }
         public void q_sort(int low, int high)
         {
-            int pivot, i, j;
+            int pivot, i, CK;
             if (low > high)
                 return;
 
@@ -55,11 +55,11 @@ namespace Exercise2
             //Other containing elements greater than pivot
 
             i = low + 1;
-            j = high;
+            CK = high;
 
             pivot = arr[low];
 
-            while (i <= j)
+            while (i <= CK)
             {
                 //Search for an element greater than pivot
                 while ((arr[i] <= pivot) && (i <= high))
@@ -72,32 +72,32 @@ namespace Exercise2
                 //Search for an elements less then or equal to pivot
                 while ((arr[j] > pivot) && (j >= low))
                 {
-                    j--;
+                    CK--;
                     cmp_count++;
                 }
                 cmp_count++;
 
 
-                if (i < j) //if the greater element is on the left of the element
+                if (i < CK) //if the greater element is on the left of the element
                 {
                     //swap the element at index i with the element at index j
-                    swap(i, j);
+                    swap(i, CK);
                     mov_count++;
                 }
             }
             //j now contains the index of the last element in the sorted list
 
-            if (low < j)
+            if (low < CK)
             {
                 //Move the pivot to the correct position in the list
-                swap(low, j);
+                swap(low, CK);
                 mov_count++;
             }
             //sort the list on the left of pivot using quick sort
-            q_sort(low, j - 1);
+            q_sort(low, CK - 1);
 
             //sort the list on the right of pivot using quick sort
-            q_sort(j + 1, high);
+            q_sort(CK + 1, high);
         }
         void displayq_sort()
         {
@@ -105,9 +105,9 @@ namespace Exercise2
             Console.WriteLine(" Sorted array elements ");
             Console.WriteLine("-----------------------");
 
-            for (int j = 0; j < n; j++)
+            for (int CK = 0; CK < n;CK++)
             {
-                Console.WriteLine(arr[j]);
+                Console.WriteLine(arr[CK]);
             }
             Console.WriteLine("\nNumber of comparisons: " + cmp_count);
             Console.WriteLine("\nNumber of data movements: " + mov_count);
