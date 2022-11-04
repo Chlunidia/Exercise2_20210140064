@@ -126,5 +126,60 @@ namespace Exercise2
                 merge(Array, low, mid, high);
             }
         }
+        // merge function performs sort and merge operations
+        // for mergesort function
+        static void merge(int[] Array, int low, int mid, int high)
+        {
+            // Create two temporary array to hold split 
+            // elements of main array 
+            int n1 = mid - low + 1; //no of elements in LeftArray
+            int n2 = high - mid;     //no of elements in RightArray    
+            int[] LowArray = new int[n1];
+            int[] HighArray = new int[n2];
+
+            for (int i = 0; i < n1; i++)
+            {
+                LowArray[i] = Array[low + i];
+            }
+
+            for (int i = 0; i < n2; i++)
+            {
+                HighArray[i] = Array[mid + i + 1];
+            }
+
+            // In below section x, y and z represents index number
+            // of LeftArray, RightArray and Array respectively
+            int x = 0, y = 0, z = low;
+            while (x < n1 && y < n2)
+            {
+                if (LowArray[x] < HighArray[y])
+                {
+                    Array[z] = LowArray[x];
+                    x++;
+                }
+                else
+                {
+                    Array[z] = HighArray[y];
+                    y++;
+                }
+                z++;
+            }
+
+            // Copying the remaining elements of LeftArray
+            while (x < n1)
+            {
+                Array[z] = LowArray[x];
+                x++;
+                z++;
+            }
+
+            // Copying the remaining elements of RightArray
+            while (y < n2)
+            {
+                Array[z] = HighArray[y];
+                y++;
+                z++;
+            }
+        }
     }
 }
